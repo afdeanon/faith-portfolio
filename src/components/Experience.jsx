@@ -3,9 +3,12 @@ import schoolIcon from "../assets/school.svg";
 import workIcon from "../assets/work.svg";
 
 export default function Experience({ defaultColor }) {
-    const baseClass = defaultColor;
+    const baseClass = defaultColor || 'bg-gray-500';
 
-    return <div>
+    return     <section id="experience" className="bg-gray-100 py-12">
+
+    
+    <div >
         {timelineElements.map((element) => {
             const colors = [
                 "bg-red-500",
@@ -29,25 +32,30 @@ export default function Experience({ defaultColor }) {
                         <div
                             className={`${color} w-px h-full translate-x-5 translate-y-10 opacity-30`}>
                         </div>
+                        <div>
                         <img
                             src={element.icon == "school" ? schoolIcon : workIcon}
                             alt="icon"
                             className={`${color} w-10 p-1 rounded-lg z-20`} />
+                        </div>
+
                     </div>
-                    <div className="border border-gray-600 rounded-1g px-8 py-4 bg-gray-800 w-full text-center z-10 sm:w-96">
-                        <div className="text-xl font-medium text-center">{element.title}</div>
-                        <div className="text-gray-300 mb-6 sm:text-xs">{element.location}{" "} <span> {element.date}</span></div>
-                        <div className="mb-4 text-left">{element.description}</div>
-                        <div className="flex flex-wrap justify-center">{element.tech.map((tech, index) => {
-                            return (
-                                <span key={index} className="bg-gray-900 rounded-xl px-2 py-1 test-sm m-1">
-                                    {tech}
-                                </span>
-                            );
-                        })}</div >
-                        <div className="mt-4">
-                            <img src={element.icon == "school" ? schoolIcon : workIcon} alt="icon" className={`${color} w-8 p-1 rounded-lg z-20 absolute left-4 top-4 sm:hidden`} />
-                            <a className={`${color} text-gray-950 font-medium px-4 py-1 rounded-md mx-auto cursor-pointer hover:text-white`}>{element.buttonText}</a>
+                    <div>
+                        <div className="border border-gray-600 rounded-1g px-8 py-4 bg-off-white-500 w-full text-center z-10 sm:w-96">
+                            <div className="text-xl font-medium text-center">{element.title}</div>
+                            <div className="text-gray-300 mb-6 sm:text-xs">{element.location}{" "} <span> {element.date}</span></div>
+                            <div className="mb-4 text-left">{element.description}</div>
+                            <div className="flex flex-wrap justify-center">{element.tech.map((tech, index) => {
+                                return (
+                                    <span key={index} className="bg-gray-900 rounded-xl px-2 py-1 test-sm m-1">
+                                        {tech}
+                                    </span>
+                                );
+                            })}</div >
+                            <div className="mt-4">
+                                <img src={element.icon == "school" ? schoolIcon : workIcon} alt="icon" className={`${color} w-8 p-1 rounded-lg z-20 absolute left-4 top-4 sm:hidden`} />
+                                <a className={`${color} text-gray-950 font-medium px-4 py-1 rounded-md mx-auto cursor-pointer hover:text-white`}>{element.buttonText}</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,5 +63,5 @@ export default function Experience({ defaultColor }) {
             );
         })}
     </div>
-
+    </section>
 }

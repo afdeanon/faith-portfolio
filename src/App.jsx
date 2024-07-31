@@ -1,6 +1,7 @@
 import NavBar from './components/NavBar';
 import Experience from './components/Experience';
 import React, { useEffect } from 'react';
+import AboutMe from './components/AboutMe';
 
 function App() {
   useEffect(() => {
@@ -19,12 +20,15 @@ function App() {
 
   return (
     <div>
-      <header>
-        <NavBar />
-      </header>
       <main>
-        <div className ="flex flex-col justify-center items-center bg-gray-900 text-white text-base pb-8">
-          <Experience />
+        <div className='container mx-auto px-4'>
+          <div id="experience" className ="content pb-20 flex flex-col justify-center items-center bg-white text-black text-base pb-8">
+            <AboutMe />
+            <Experience />
+          </div>
+          <div className = "fixed bottom-10 left-0 w-full">
+          <NavBar />
+        </div>
         </div>
           {/* <Home />
           <AboutMe />
